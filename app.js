@@ -11,8 +11,7 @@ app.use(express.static('public'))
 var weatherdata=null;
 
 app.get("/",function(req,res) {
-    // res.sendFile(__dirname+"/index.html");
-    res.render('index',{data:weatherdata})
+    res.sendFile(__dirname+"/index.html");
    
 });
 
@@ -34,9 +33,9 @@ app.post("/",function(req,res){
 
 
 
-                // res.write("<p>description of temperature is "+ description +"</p>\n");
-                // res.write(" <h1>the temp is " + temp + "</h1>");
-                // res.write("<img src="+ imageurl+">");
+                res.write("<p>description of temperature is "+ description +"</p>\n");
+                res.write(" <h1>the temp is " + temp + "</h1>");
+                res.write("<img src="+ imageurl+">");
 
                 res.send();
         })
