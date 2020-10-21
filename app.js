@@ -1,16 +1,20 @@
-const express=require("express");
-const app=express();
+const express = require("express");
 
-app.use(express.static('public'))
+const app = express();
 
+app.use(express.static("public"));
 
-app.get("/",function(req,res) {
-    res.sendFile(__dirname+"/index.html");
-   
+app.get("/", function (req, res) {
+    res.sendFile(__dirname + "/index.html");
 });
 
 
 
-app.listen(3000 || process.env.PORT,function(){
-    console.log("server is runiing on port 3000");
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 3000;
+}
+
+app.listen(port, function () {
+    console.log("Server  started on port 3000 ");
 });
